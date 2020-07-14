@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 class Breeds {
-    
+
 
     @SerializedName("affenpinscher")
     private String affenpinscher;
