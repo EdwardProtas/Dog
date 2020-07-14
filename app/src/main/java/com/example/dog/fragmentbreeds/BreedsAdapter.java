@@ -21,7 +21,6 @@ public class BreedsAdapter extends RecyclerView.Adapter<BreedsAdapter.DogItemVie
         this.mApiDogsRepositories.add(apiDogsRepositories);
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public DogItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
