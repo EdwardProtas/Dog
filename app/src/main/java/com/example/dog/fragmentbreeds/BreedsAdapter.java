@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.dog.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,7 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BreedsAdapter extends RecyclerView.Adapter<BreedsAdapter.DogItemViewHolder> {
 
-    private List<String> mApiDogsRepositories;
+    interface BreedsItemListener{
+        void onItemCLick(String nameBreeds);
+    }
+
+    private List<String> mApiDogsRepositories = new ArrayList<>();
+    private BreedsItemListener breedsItemListener;
+
+    public void setBreedsItemListener(BreedsItemListener breedsItemListener) {
+        this.breedsItemListener = breedsItemListener;
+    }
 
     public void setApiDogsRepositories(String apiDogsRepositories) {
         this.mApiDogsRepositories.add(apiDogsRepositories);
@@ -42,12 +52,15 @@ public class BreedsAdapter extends RecyclerView.Adapter<BreedsAdapter.DogItemVie
 
         private TextView textBreed;
 
-        public DogItemViewHolder(@NonNull View itemView) {
+        public DogItemViewHolder(@NonNull View itemView ) {
             super(itemView);
             textBreed = itemView.findViewById(R.id.textBreed);
         }
-        public void bind(String apiDogsRepository) {
+
+        public void bind(final String apiDogsRepository) {
             textBreed.setText(apiDogsRepository);
+            itemView.setOnClickListener(view ->
+                    breedsItemListener.onItemCLick(textBreed.getText().toString()));
         }
     }
 }

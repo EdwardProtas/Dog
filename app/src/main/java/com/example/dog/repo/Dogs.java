@@ -7,9 +7,9 @@ import java.util.List;
 public class Dogs {
 
     @SerializedName("message")
-    private Breeds message;
+    private List<String> message;
 
-    public Breeds getMessage() {
+    public List<String> getMessage() {
         return message;
     }
 }

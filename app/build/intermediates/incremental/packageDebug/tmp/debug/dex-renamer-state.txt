@@ -1,4 +1,4 @@
-#Tue Jul 14 17:07:51 MSK 2020
+#Wed Jul 15 22:43:51 MSK 2020
 base.0=C\:\\Users\\Vitalik\\AndroidStudioProjects\\Dog\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

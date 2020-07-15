@@ -4,21 +4,30 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-class Breeds {
-
+public class Breeds {
 
     @SerializedName("affenpinscher")
-    private String affenpinscher;
+    private List<String> affenpinscher;
     @SerializedName("african")
-    private String african;
+    private List<String> african;
+    @SerializedName("bullterrier")
+    private List<String> bullterrier;
+    @SerializedName("terrier")
+    private List<String> terrier;
 
-    public String getAffenpinscher() {
+    public List<String> getAffenpinscher() {
         return affenpinscher;
     }
 
-    public String getBasenji() {
+    public List<String> getAfrican() {
         return african;
     }
 
+    public List<String> getBullterrier() {
+        return bullterrier;
+    }
 
+    public List<String> getTerrier() {
+        return terrier;
+    }
 }
