@@ -71,12 +71,8 @@ public class FragmentImage extends Fragment {
                     Type type = new TypeToken<UrlImage>() {
                     }.getType();
                     UrlImage urlImage = new Gson().fromJson(json, type);
-                    new Handler(mActivity.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            mImageAdapter.setUrlImage(urlImage.getMessage());
-                        }
-                    });
+                    new Handler(mActivity.getMainLooper()).post(() ->
+                            mImageAdapter.setUrlImage(urlImage.getMessage()));
                 }
             }
         });

@@ -144,7 +144,7 @@ public class FragmentSubspecies extends Fragment {
                 arrayList = dog.getMessage().getTerrier();
                 break;
             default:
-                Toast.makeText(mActivity, "Нет подпороды ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, "Нет под-породы ", Toast.LENGTH_SHORT).show();
                 break;
         }
         for (int i = 0; i < arrayList.size(); i++) {

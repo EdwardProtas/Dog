@@ -1,2 +1,3 @@
 rootProject.name='Dog'
 include ':app'
+include ':cocktail'

@@ -1,26 +1,17 @@
 package com.example.dog.fragmentImage;
 
-import android.graphics.drawable.Drawable;
-import android.opengl.EGLImage;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.example.dog.R;
-import com.example.dog.repo.UrlImage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageItemHolder> {
