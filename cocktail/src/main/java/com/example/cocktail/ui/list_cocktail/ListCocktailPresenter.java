@@ -1,4 +1,4 @@
-package com.example.cocktail.ActivityListCoctail;
+package com.example.cocktail.ui.list_cocktail;
 
 public interface ListCocktailPresenter {
     void setListCocktailView(ListCocktailView listCocktailView);

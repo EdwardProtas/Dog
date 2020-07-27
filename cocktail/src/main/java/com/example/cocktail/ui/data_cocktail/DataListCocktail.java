@@ -1,16 +1,17 @@
-package com.example.cocktail.DataCocktail;
+package com.example.cocktail.ui.data_cocktail;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.cocktail.ActivityListCoctail.ListCocktailActivity;
-import com.example.cocktail.ConvertJson.Drink;
+import com.example.cocktail.ui.list_cocktail.ListCocktailActivity;
+import com.example.cocktail.json.DrinkResponse;
 import com.example.cocktail.R;
-import com.example.cocktail.repo.ApiRepoImp;
+import com.example.cocktail.repo.CocktailRepoImpl;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,15 +20,15 @@ public class DataListCocktail extends AppCompatActivity implements DataListCockt
 
     private DataListCocktailPresenter dataListCocktailPresenter;
     private String nameCoctail;
-    private ProgressBar progress;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_image_cocktail);
-        dataListCocktailPresenter = new DataListCocktailPresenterImp(new ApiRepoImp());
+        dataListCocktailPresenter = new DataListCocktailPresenterImp(new CocktailRepoImpl());
         dataListCocktailPresenter.setListCocktailView(this);
-        progress = findViewById(R.id.progress);
+        frameLayout = findViewById(R.id.frameLayout);
         initIntent();
     }
 
@@ -40,13 +41,14 @@ public class DataListCocktail extends AppCompatActivity implements DataListCockt
     }
 
     @Override
-    public void showListCocktail(Drink drink) {
+    public void showListCocktail(DrinkResponse drink) {
         ImageView imageCocktail = findViewById(R.id.imageCocktail);
         TextView cocktail = findViewById(R.id.cocktail);
         TextView strInstructions = findViewById(R.id.strInstructions);
         TextView strIngredient = findViewById(R.id.strIngredient);
         Glide.with(getApplicationContext()).load(drink.getDrinks().get(0).getStrDrinkThumb()).into(imageCocktail);
         cocktail.setText(drink.getDrinks().get(0).getStrDrink());
+        strInstructions.setMovementMethod(new ScrollingMovementMethod());
         strInstructions.setText(drink.getDrinks().get(0).getStrInstructions());
         strIngredient.setText(drink.getDrinks().get(0).getStrIngredient1() + ", " +
                 drink.getDrinks().get(0).getStrIngredient2() + ", " +
@@ -55,12 +57,12 @@ public class DataListCocktail extends AppCompatActivity implements DataListCockt
 
     @Override
     public void showProgress() {
-        progress.setVisibility(View.VISIBLE);
+        frameLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        progress.setVisibility(View.GONE);
+        frameLayout.setVisibility(View.GONE);
     }
 
     @Override

@@ -1,17 +1,17 @@
-package com.example.cocktail.DataCocktail;
+package com.example.cocktail.ui.data_cocktail;
 
-import com.example.cocktail.repo.ApiRepo;
+import com.example.cocktail.repo.CocktailsRepo;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class DataListCocktailPresenterImp implements DataListCocktailPresenter {
 
-    private ApiRepo apiRepo;
+    private CocktailsRepo apiRepo;
     private Disposable disposable;
     private DataListCocktailView dataListCocktailView;
 
-    public DataListCocktailPresenterImp(ApiRepo apiRepo) {
+    public DataListCocktailPresenterImp(CocktailsRepo apiRepo) {
         this.apiRepo = apiRepo;
     }
 

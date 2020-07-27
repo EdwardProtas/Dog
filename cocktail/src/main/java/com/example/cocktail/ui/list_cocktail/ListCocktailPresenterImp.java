@@ -1,6 +1,6 @@
-package com.example.cocktail.ActivityListCoctail;
+package com.example.cocktail.ui.list_cocktail;
 
-import com.example.cocktail.repo.ApiRepo;
+import com.example.cocktail.repo.CocktailsRepo;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -8,10 +8,10 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public class ListCocktailPresenterImp implements ListCocktailPresenter {
 
     private ListCocktailView listCocktailView;
-    private ApiRepo apiRepo;
+    private CocktailsRepo apiRepo;
     private Disposable disposable;
 
-    public ListCocktailPresenterImp(ApiRepo apiRepo) {
+    public ListCocktailPresenterImp(CocktailsRepo apiRepo) {
         this.apiRepo = apiRepo;
     }
 

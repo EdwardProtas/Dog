@@ -1,4 +1,4 @@
-package com.example.cocktail.DataCocktail;
+package com.example.cocktail.ui.data_cocktail;
 
 public interface DataListCocktailPresenter {
 

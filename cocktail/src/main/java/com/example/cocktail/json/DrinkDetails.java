@@ -1,8 +1,8 @@
-package com.example.cocktail.ConvertJson;
+package com.example.cocktail.json;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataDrink {
+public class DrinkDetails {
 
     @SerializedName("strDrink")
     private String strDrink;

@@ -1,4 +1,4 @@
-package com.example.cocktail.ActivityListCoctail;
+package com.example.cocktail.ui.list_cocktail;
 
 import android.view.LayoutInflater;
 import android.view.View;

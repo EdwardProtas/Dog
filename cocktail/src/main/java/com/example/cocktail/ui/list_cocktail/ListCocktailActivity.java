@@ -1,17 +1,17 @@
-package com.example.cocktail.ActivityListCoctail;
+package com.example.cocktail.ui.list_cocktail;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.example.cocktail.ConvertJson.Drink;
-import com.example.cocktail.DataCocktail.DataListCocktail;
+import com.example.cocktail.json.DrinkResponse;
+import com.example.cocktail.ui.data_cocktail.DataListCocktail;
 import com.example.cocktail.R;
-import com.example.cocktail.repo.ApiRepoImp;
+import com.example.cocktail.repo.CocktailRepoImpl;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,18 +24,18 @@ public class ListCocktailActivity extends AppCompatActivity implements ListCockt
     private ListCocktailPresenter listCocktailPresenter;
     public static final String ActivityListCocktail = "ListCocktailActivity";
     private ListCocktailAdapter activityListCocktailAdapter;
-    private ProgressBar progress;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        progress = findViewById(R.id.progress);
-        listCocktailPresenter = new ListCocktailPresenterImp(new ApiRepoImp());
+        frameLayout = findViewById(R.id.frameLayout);
+        listCocktailPresenter = new ListCocktailPresenterImp(new CocktailRepoImpl());
         listCocktailPresenter.setListCocktailView(this);
-        initRecycler();
         enterNameCocktail();
-        presItemAdapter();
+        initRecycler();
+
     }
 
     private void presItemAdapter() {
@@ -44,7 +44,6 @@ public class ListCocktailActivity extends AppCompatActivity implements ListCockt
             intent.putExtra(ActivityListCocktail, nameBreeds);
             startActivity(intent);
         });
-
     }
 
     private void enterNameCocktail() {
@@ -66,10 +65,15 @@ public class ListCocktailActivity extends AppCompatActivity implements ListCockt
         recyclerView.setAdapter(new ListCocktailAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false));
         activityListCocktailAdapter = (ListCocktailAdapter) recyclerView.getAdapter();
+        presItemAdapter();
     }
 
     @Override
-    public void showListCocktail(Drink drink) {
+    public void showListCocktail(DrinkResponse drink) {
+        if(activityListCocktailAdapter != null) {
+            activityListCocktailAdapter = null;
+            initRecycler();
+        }
         for (int i = 0; i < drink.getDrinks().size(); i++) {
             activityListCocktailAdapter.setApiCocktailRepositories(drink.getDrinks().get(i).getStrDrink());
             activityListCocktailAdapter.setApiCocktailURL(drink.getDrinks().get(i).getStrDrinkThumb());
@@ -78,12 +82,12 @@ public class ListCocktailActivity extends AppCompatActivity implements ListCockt
 
     @Override
     public void showProgress() {
-        progress.setVisibility(View.VISIBLE);
+        frameLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        progress.setVisibility(View.GONE);
+        frameLayout.setVisibility(View.GONE);
     }
 
     @Override
