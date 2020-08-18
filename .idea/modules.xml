@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Dog.iml" filepath="$PROJECT_DIR$/Dog.iml" group="Dog" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Dog/app" />
-      <module fileurl="file://$PROJECT_DIR$/cocktail/cocktail.iml" filepath="$PROJECT_DIR$/cocktail/cocktail.iml" group="Dog/cocktail" />
+      <module fileurl="file://$PROJECT_DIR$/cocktailMVP/cocktailMVP.iml" filepath="$PROJECT_DIR$/cocktailMVP/cocktailMVP.iml" group="Dog/cocktailMVP" />
+      <module fileurl="file://$PROJECT_DIR$/cocktailmvvm/cocktailmvvm.iml" filepath="$PROJECT_DIR$/cocktailmvvm/cocktailmvvm.iml" group="Dog/cocktailmvvm" />
     </modules>
   </component>
 </project>
